@@ -28,6 +28,23 @@
   gap: 0.15rem;
 }
 
+.chart-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.chart-accuracy-badge {
+  font-size: 0.725rem;
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+
 .actual-vs-pred-chart .chart-title {
   font-size: 1.05rem;
   font-weight: 700;
@@ -40,6 +57,49 @@
   font-size: 0.775rem;
   color: #94a3b8;
   padding-left: 0.5rem;
+}
+
+/* Metric Highlights Bar */
+.chart-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  flex-wrap: wrap;
+  background: rgba(15, 17, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  margin: 0 0.5rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.stat-lbl {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.stat-val {
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+}
+
+.stat-val--actual { color: #38bdf8; }
+.stat-val--pred { color: #c084fc; }
+.stat-val--diff { color: #f59e0b; }
+.stat-val--acc { color: #4ade80; }
+
+.stat-item--highlight {
+  margin-left: auto;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(34, 197, 94, 0.25);
 }
 
 .chart-legend-pills {
