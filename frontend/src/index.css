@@ -1,0 +1,63 @@
+/* ──────────────────────────────────────────────────────────
+   index.css  —  global design tokens & base reset
+   ────────────────────────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* Design tokens */
+:root {
+  --color-bg:       #0f1117;
+  --color-surface:  #1a1d27;
+  --color-border:   rgba(255, 255, 255, 0.08);
+  --color-text:     #e2e8f0;
+  --color-muted:    #64748b;
+  --color-accent:   #60a5fa;
+  --color-accent2:  #818cf8;
+
+  --radius:   0.75rem;
+  --shadow:   0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove default button/link chrome */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar (Chromium) */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }

@@ -1,0 +1,191 @@
+/* AlertExplanation.css — Styling for the AlertExplanation component */
+
+.alert-explanation-card {
+  background: #13151c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.alert-explanation--red {
+  border-color: rgba(239, 68, 68, 0.4);
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.06), #13151c 60%);
+}
+
+.alert-explanation--orange {
+  border-color: rgba(249, 115, 22, 0.4);
+  background: linear-gradient(180deg, rgba(249, 115, 22, 0.06), #13151c 60%);
+}
+
+.alert-explanation--yellow {
+  border-color: rgba(234, 179, 8, 0.4);
+  background: linear-gradient(180deg, rgba(234, 179, 8, 0.06), #13151c 60%);
+}
+
+.alert-explanation--normal {
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+/* Header */
+.explanation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.header-title-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title-icon {
+  font-size: 1.25rem;
+}
+
+.explanation-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.explainability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #818cf8;
+}
+
+/* Factors Stack Section */
+.factors-stack-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.factors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: #181b24;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+}
+
+.factor-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.factor-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.factor-name {
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.factor-pct {
+  font-weight: 800;
+  font-family: monospace;
+}
+
+.factor-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.factor-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reasons Section */
+.reasons-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: #181b24;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+}
+
+.reason-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.785rem;
+  color: #e2e8f0;
+  line-height: 1.45;
+}
+
+.reason-bullet {
+  color: #38bdf8;
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.reason-text {
+  font-weight: 500;
+}
+
+/* Footer Disclaimer */
+.explanation-footer-disclaimer {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-style: italic;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.5rem;
+}

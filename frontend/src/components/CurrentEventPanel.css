@@ -1,0 +1,189 @@
+/* CurrentEventPanel.css — Right panel styling for current event overview */
+
+.current-event-card {
+  background: #13151c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+
+.current-event-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.65rem;
+}
+
+.header-title-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 10px #ef4444;
+  animation: pulseLive 1.2s infinite alternate;
+}
+
+@keyframes pulseLive {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+.current-event-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.event-time-tag {
+  font-size: 0.725rem;
+  color: #94a3b8;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+}
+
+/* Hero Alert Box */
+.event-alert-hero {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.alert-hero-icon {
+  font-size: 1.5rem;
+}
+
+.alert-hero-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-alert-level {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.hero-alert-sub {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Metrics List */
+.event-metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.metric-row {
+  background: #181b24;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.metric-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.metric-icon {
+  font-size: 1.1rem;
+}
+
+.metric-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.metric-sub {
+  font-size: 0.675rem;
+  color: #94a3b8;
+}
+
+.metric-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.metric-value--observed {
+  color: #38bdf8;
+}
+
+.metric-value--predicted {
+  color: #c084fc;
+}
+
+.unit {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.metric-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  border: 1px solid;
+}
+
+.metric-area-val-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.area-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #f87171;
+}
+
+.area-pct {
+  font-size: 0.675rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.event-panel-footer {
+  font-size: 0.725rem;
+  color: #64748b;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.5rem;
+}

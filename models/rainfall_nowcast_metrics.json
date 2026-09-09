@@ -1,0 +1,97 @@
+{
+  "model_name": "Spatio-Temporal Conv-ML Nowcaster",
+  "model_type": "Spatio-Temporal Convolutional ML Nowcaster",
+  "dataset_info": {
+    "source": "GPM IMERG V07B 0.1\u00b0 Gridded",
+    "region": "Kerala & Western Ghats Basin",
+    "grid_dimensions": "47 x 29",
+    "total_timesteps": 12,
+    "sequence_input_length": 4,
+    "prediction_horizon_steps": "1 to 3 frames",
+    "train_samples": 5,
+    "val_samples": 1,
+    "test_samples": 2,
+    "leakage_prevention": "Strict temporal sequence split (time-ordered)"
+  },
+  "evaluation_metrics": {
+    "persistence_baseline": {
+      "test_mae_mm": 16.896,
+      "test_rmse_mm": 25.875,
+      "csi_summary": {
+        "0.5mm": {
+          "csi": 0.9246,
+          "pod": 1.0,
+          "far": 0.0754,
+          "hits": 1189,
+          "misses": 0,
+          "false_alarms": 97
+        },
+        "5.0mm": {
+          "csi": 0.7136,
+          "pod": 1.0,
+          "far": 0.2864,
+          "hits": 623,
+          "misses": 0,
+          "false_alarms": 250
+        },
+        "35.6mm": {
+          "csi": 0.1995,
+          "pod": 1.0,
+          "far": 0.8005,
+          "hits": 76,
+          "misses": 0,
+          "false_alarms": 305
+        },
+        "64.5mm": {
+          "csi": 0.0,
+          "pod": 0.0,
+          "far": 1.0,
+          "hits": 0,
+          "misses": 0,
+          "false_alarms": 153
+        }
+      }
+    },
+    "spatiotemporal_ml_model": {
+      "test_mae_mm": 14.752,
+      "test_rmse_mm": 22.49,
+      "csi_summary": {
+        "0.5mm": {
+          "csi": 0.9167,
+          "pod": 1.0,
+          "far": 0.0833,
+          "hits": 1189,
+          "misses": 0,
+          "false_alarms": 108
+        },
+        "5.0mm": {
+          "csi": 0.7382,
+          "pod": 1.0,
+          "far": 0.2618,
+          "hits": 623,
+          "misses": 0,
+          "false_alarms": 221
+        },
+        "35.6mm": {
+          "csi": 0.219,
+          "pod": 1.0,
+          "far": 0.781,
+          "hits": 76,
+          "misses": 0,
+          "false_alarms": 271
+        },
+        "64.5mm": {
+          "csi": 0.0,
+          "pod": 0.0,
+          "far": 1.0,
+          "hits": 0,
+          "misses": 0,
+          "false_alarms": 120
+        }
+      },
+      "mae_improvement_vs_baseline_pct": 12.69,
+      "rmse_improvement_vs_baseline_pct": 13.08
+    }
+  },
+  "scientific_limitations": "Prototype model trained on historical monsoon event sequences. Suitable for short-term spatial advection-diffusion nowcasting (1\u20133 hours). Not for official operational safety warnings."
+}

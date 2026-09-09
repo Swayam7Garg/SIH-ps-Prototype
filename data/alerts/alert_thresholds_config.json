@@ -1,0 +1,39 @@
+{
+  "engine_name": "Integrated Rainfall & Inundation Multi-Hazard Alert Engine",
+  "disclaimer": "Prototype alert thresholds inspired by operational warning concepts.",
+  "scientific_notice": "This alert engine is a research prototype combining satellite/ML precipitation with topographic susceptibility. It does not replace official India Meteorological Department (IMD) or State Disaster Management Authority (SDMA) bulletins.",
+  "thresholds": {
+    "YELLOW": {
+      "label": "YELLOW (Advisory / Watch)",
+      "color": "#eab308",
+      "action": "Be updated on local weather & drainage conditions.",
+      "rainfall_min_mm": 35.6,
+      "flood_risk_min": 0.3,
+      "regional_pct_trigger": 5.0
+    },
+    "ORANGE": {
+      "label": "ORANGE (Alert / Be Prepared)",
+      "color": "#f97316",
+      "action": "Be prepared for localized inundation, waterlogging & runoff.",
+      "rainfall_min_mm": 64.5,
+      "flood_risk_min": 0.6,
+      "regional_pct_trigger": 10.0
+    },
+    "RED": {
+      "label": "RED (Warning / Take Action)",
+      "color": "#ef4444",
+      "action": "Take action for severe inundation threat in low-lying basins.",
+      "rainfall_min_mm": 124.5,
+      "flood_risk_min": 0.8,
+      "compound_rain_min_mm": 64.5,
+      "compound_risk_min": 0.6,
+      "regional_pct_trigger": 5.0
+    },
+    "NORMAL": {
+      "label": "NORMAL (Green / Safe)",
+      "color": "#22c55e",
+      "action": "No immediate severe rainfall or inundation alert active."
+    }
+  },
+  "cell_area_km2": 121.0
+}

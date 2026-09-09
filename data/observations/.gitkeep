@@ -1,0 +1,2 @@
+# Place IMD / AWS station rainfall CSV files here.
+# Expected columns: station_id, latitude, longitude, datetime, rainfall_mm

@@ -1,0 +1,45 @@
+{
+  "model_name": "Simplified Multi-Criteria Inundation Susceptibility Model",
+  "disclaimer": "Simplified Inundation Risk Estimate (Hackathon Prototype). Not a hydrodynamic flood simulation or hydraulic routing model.",
+  "weights": {
+    "rainfall_weight": 0.5,
+    "elevation_weight": 0.3,
+    "slope_weight": 0.2
+  },
+  "normalization": {
+    "rainfall_max_norm_mm": 150.0,
+    "elevation_max_norm_m": 400.0,
+    "slope_max_norm_deg": 12.0
+  },
+  "thresholds": {
+    "low": {
+      "min": 0.0,
+      "max": 0.3,
+      "label": "Low Risk",
+      "color": "#22c55e",
+      "alert": "Green"
+    },
+    "moderate": {
+      "min": 0.3,
+      "max": 0.6,
+      "label": "Moderate Risk",
+      "color": "#eab308",
+      "alert": "Yellow"
+    },
+    "high": {
+      "min": 0.6,
+      "max": 0.8,
+      "label": "High Risk",
+      "color": "#f97316",
+      "alert": "Orange"
+    },
+    "very_high": {
+      "min": 0.8,
+      "max": 1.0,
+      "label": "Very High Inundation Risk",
+      "color": "#ef4444",
+      "alert": "Red"
+    }
+  },
+  "cell_area_km2": 121.0
+}

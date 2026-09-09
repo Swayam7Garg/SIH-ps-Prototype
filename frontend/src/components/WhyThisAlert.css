@@ -1,0 +1,164 @@
+/* WhyThisAlert.css — Styling for the bottom Why This Alert section */
+
+.why-this-alert-card {
+  background: #13151c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.why-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title-icon {
+  font-size: 1.2rem;
+}
+
+.why-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.disclaimer-badge {
+  font-size: 0.725rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.4rem;
+}
+
+/* Contributions Grid */
+.contributions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .contributions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contrib-card {
+  background: #181b24;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contrib-top {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contrib-icon {
+  font-size: 1rem;
+}
+
+.contrib-label {
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+.contrib-value {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #f8fafc;
+  line-height: 1.1;
+}
+
+.contrib-card--rain .contrib-value { color: #38bdf8; }
+.contrib-card--elev .contrib-value { color: #facc15; }
+.contrib-card--slope .contrib-value { color: #34d399; }
+
+.contrib-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.contrib-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.contrib-fill--rain { background: #38bdf8; }
+.contrib-fill--elev { background: #facc15; }
+.contrib-fill--slope { background: #34d399; }
+
+.contrib-sub {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+/* Reasons Box */
+.trigger-reasons-box {
+  background: #181b24;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.reasons-heading {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.reasons-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.775rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+.bullet-icon {
+  color: #22c55e;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}

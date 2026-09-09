@@ -1,0 +1,333 @@
+/* InundationAnalytics.css — Styling for Flood Inundation Metrics, Factor Progress & Weights */
+
+.inundation-analytics-card {
+  background: #13151c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inundation-analytics-empty {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 120px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.empty-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ── Disclaimer Banner ────────────────────────────────────────────── */
+.disclaimer-banner {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 0.65rem;
+  padding: 0.65rem 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.disclaimer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  font-size: 0.675rem;
+  font-weight: 800;
+  color: #fbbf24;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+.disclaimer-text {
+  font-size: 0.775rem;
+  color: #cbd5e1;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* ── KPI Grid ─────────────────────────────────────────────────────── */
+.inundation-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.85rem;
+}
+
+.kpi-box {
+  background: #181b24;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: border-color 0.15s ease;
+}
+
+.kpi-box:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.kpi-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kpi-value {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.kpi-unit {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.kpi-subtext {
+  font-size: 0.725rem;
+  color: #64748b;
+}
+
+.kpi-box--risk .kpi-value {
+  color: #eab308;
+}
+
+.kpi-box--highrisk .kpi-value {
+  color: #f87171;
+}
+
+.kpi-formula-code {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.25rem 0.45rem;
+  border-radius: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.config-toggle-btn {
+  align-self: flex-start;
+  margin-top: 0.35rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.35rem;
+  font-size: 0.725rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.config-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* ── Weight Tuner Panel ───────────────────────────────────────────── */
+.weight-tuner-panel {
+  background: #181b24;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.tuner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tuner-header h4 {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #818cf8;
+  margin: 0;
+}
+
+.reset-weights-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  font-size: 0.725rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.reset-weights-btn:hover {
+  color: #f1f5f9;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.sliders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.slider-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.slider-item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.slider-item input[type="range"] {
+  width: 100%;
+  accent-color: #6366f1;
+}
+
+/* ── Analytics Details Grid ───────────────────────────────────────── */
+.analytics-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .analytics-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detail-card {
+  background: #181b24;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detail-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.factor-interpretation {
+  font-size: 0.775rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.progress-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.progress-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bar-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.bar-fill--rain {
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+}
+
+.bar-fill--elev {
+  background: linear-gradient(90deg, #d97706, #facc15);
+}
+
+.bar-fill--slope {
+  background: linear-gradient(90deg, #059669, #34d399);
+}
+
+/* ── Hotspots Table ───────────────────────────────────────────────── */
+.hotspots-table-wrapper {
+  overflow-x: auto;
+}
+
+.hotspots-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+
+.hotspots-table th {
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  color: #94a3b8;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hotspots-table td {
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.risk-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  border: 1px solid;
+}

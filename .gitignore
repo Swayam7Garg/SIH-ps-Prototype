@@ -1,0 +1,61 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# AI Rainfall & Flood Warning System — Project .gitignore
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.so
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment files (contain secrets)
+backend/.env
+*.env
+!backend/.env.example
+!frontend/.env
+
+# Data files (large binary / proprietary; share via object storage instead)
+data/rainfall/*.HDF5
+data/rainfall/*.nc
+data/rainfall/*.h5
+data/dem/*.tif
+data/dem/*.img
+data/observations/*.csv
+
+# Trained model weights (large binaries; version via DVC or object storage)
+models/*.pkl
+models/*.h5
+models/*.pt
+models/*.pth
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE / OS
+.idea/
+.vscode/settings.json
+*.DS_Store
+Thumbs.db
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
