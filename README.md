@@ -1,8 +1,7 @@
-# AI Rainfall & Inundation Early Warning System
+# VARUNA
 
-> **SIH 2024 Prototype** — AI/ML-Based Integrated Heavy Rainfall Early Warning
-> and Inundation Prediction System using Satellite, Radar, Observational
-> Weather, and NWP Model Data.
+> **VARUNA** — **V**igilant **A**I for **R**ainfall & **U**rban-flood **N**otification and **A**lerting.
+> Integrated Heavy Rainfall Early Warning and Inundation Prediction System using Satellite and NWP Model Data.
 
 ---
 
@@ -135,6 +134,6 @@ running ML pipelines:
 
 ---
 
-## Team
+## License
 
-SIH 2024 — Team FloodSense
+AI/ML Heavy Rainfall Early Warning & Inundation Prediction System.

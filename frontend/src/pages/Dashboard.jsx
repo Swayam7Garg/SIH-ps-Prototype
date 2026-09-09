@@ -8,6 +8,8 @@
 import React, { useMemo, useState } from "react";
 import StatusBadge from "../components/StatusBadge";
 import UnifiedMap from "../components/UnifiedMap";
+import RainfallMap from "../components/RainfallMap";
+import PredictionMap from "../components/PredictionMap";
 import RainfallTimeline from "../components/RainfallTimeline";
 import PredictionControls from "../components/PredictionControls";
 import ActualVsPredictedChart from "../components/ActualVsPredictedChart";
@@ -23,7 +25,8 @@ import "./Dashboard.css";
 
 const HISTORICAL_EVENTS = [
   { label: "⚡ 30 Jul 2024 04:00 UTC (Wayanad Peak Disaster)", timestamp: "2024-07-30T04:00:00Z" },
-  { label: "🌧️ 30 Jul 2024 01:00 UTC (Pre-Disaster Accumulation)", timestamp: "2024-07-30T01:00:00Z" },
+  { label: "🌧️ 30 Jul 2024 00:00 UTC (Pre-Disaster Accumulation)", timestamp: "2024-07-30T00:00:00Z" },
+  { label: "🌧️ 29 Jul 2024 20:00 UTC (Storm Intensification Phase)", timestamp: "2024-07-29T20:00:00Z" },
   { label: "🌊 29 Jul 2024 12:00 UTC (Monsoon Surge Onset)", timestamp: "2024-07-29T12:00:00Z" },
   { label: "⛅ 31 Jul 2024 00:00 UTC (Post-Peak Subsiding Rain)", timestamp: "2024-07-31T00:00:00Z" },
 ];
@@ -83,7 +86,18 @@ export default function Dashboard() {
   // Historical Event Selector Change Handler
   const handleEventSelect = (e) => {
     const targetTs = e.target.value;
-    const foundIdx = timestamps.indexOf(targetTs);
+    let foundIdx = timestamps.indexOf(targetTs);
+    if (foundIdx === -1 && timestamps.length > 0) {
+      const targetTime = new Date(targetTs).getTime();
+      let minDiff = Infinity;
+      timestamps.forEach((ts, idx) => {
+        const diff = Math.abs(new Date(ts).getTime() - targetTime);
+        if (diff < minDiff) {
+          minDiff = diff;
+          foundIdx = idx;
+        }
+      });
+    }
     if (foundIdx !== -1) {
       selectIndex(foundIdx);
     }
@@ -182,8 +196,8 @@ export default function Dashboard() {
               </defs>
             </svg>
             <div className="dashboard__brand-titles">
-              <span className="dashboard__brand-text">FloodSense AI</span>
-              <span className="dashboard__brand-tag">GPM IMERG · SRTM DEM · AI Nowcasting</span>
+              <span className="dashboard__brand-text">VARUNA</span>
+              <span className="dashboard__brand-tag">Vigilant AI for Rainfall &amp; Urban-flood Notification and Alerting</span>
             </div>
           </div>
 
@@ -193,7 +207,7 @@ export default function Dashboard() {
         </div>
 
         <h1 className="dashboard__title">
-          AI/ML-Based Heavy Rainfall Early Warning &amp; Inundation Prediction System
+          VARUNA — Vigilant AI for Rainfall &amp; Urban-Flood Notification and Alerting
         </h1>
 
         {/* Story Flow Breadcrumb Bar */}
@@ -291,17 +305,55 @@ export default function Dashboard() {
       {/* ── 4. MAIN VISUAL GRID (Leaflet Map + Right CURRENT EVENT Panel) ──── */}
       <section className="dashboard__main-grid">
         <div className="map-column">
-          <UnifiedMap
-            rainfallData={mapData}
-            predictionFrame={currentPredictedFrame || predictionData?.frames?.[0]}
-            elevationData={elevationData}
-            slopeData={slopeData}
-            floodPrediction={floodPrediction}
-            alertData={alertData}
-            selectedCell={selectedCell}
-            onCellClick={setSelectedCell}
-            loading={rainfallLoading || mapLoading || isPredicting || isLoadingTerrain}
-          />
+          {viewMode === "comparison" ? (
+            <div className="comparison-dual-layout">
+              <div className="comparison-pane">
+                <div className="pane-header">
+                  <span className="pane-tag pane-tag--actual">🛰️ OBSERVED RAINFALL</span>
+                  <span className="pane-time">{currentFormattedTime}</span>
+                </div>
+                <RainfallMap
+                  mapData={mapData}
+                  stations={stations}
+                  selectedCell={selectedCell}
+                  onCellSelect={setSelectedCell}
+                  loading={rainfallLoading || mapLoading}
+                  customHeight="490px"
+                />
+              </div>
+
+              <div className="comparison-pane">
+                <div className="pane-header">
+                  <span className="pane-tag pane-tag--pred">⚡ AI PREDICTED NOWCAST</span>
+                  <span className="pane-time">
+                    {currentPredictedFrame?.horizon_label || "+1h Forecast"}
+                  </span>
+                </div>
+                <PredictionMap
+                  predictedFrame={currentPredictedFrame || predictionData?.frames?.[0]}
+                  stations={stations}
+                  selectedCell={selectedCell}
+                  onCellSelect={setSelectedCell}
+                  loading={isPredicting}
+                  customHeight="490px"
+                  isSideBySide={true}
+                />
+              </div>
+            </div>
+          ) : (
+            <UnifiedMap
+              viewMode={viewMode}
+              rainfallData={mapData}
+              predictionFrame={currentPredictedFrame || predictionData?.frames?.[0]}
+              elevationData={elevationData}
+              slopeData={slopeData}
+              floodPrediction={floodPrediction}
+              alertData={alertData}
+              selectedCell={selectedCell}
+              onCellClick={setSelectedCell}
+              loading={rainfallLoading || mapLoading || isPredicting || isLoadingTerrain}
+            />
+          )}
         </div>
 
         <div className="panel-column">
@@ -314,7 +366,7 @@ export default function Dashboard() {
             alertLevel={alertData?.overall_alert || "RED"}
             alertLabel={alertData?.alert_label || "RED (Warning)"}
             alertColor={alertData?.alert_color || "#ef4444"}
-            highRiskAreaKm2={alertData?.affected_area_km2 || floodPrediction?.risk_summary?.estimated_high_risk_area_km2 || 69575}
+            highRiskAreaKm2={alertData?.affected_area_km2 || floodPrediction?.risk_summary?.estimated_high_risk_area_km2 || 2420}
             highRiskPercentage={alertData?.high_risk_percentage || floodPrediction?.risk_summary?.percentage_high_or_vhigh_risk || 42.2}
             formattedTime={currentFormattedTime}
             regionName={mapData?.region_name || "Kerala & Western Ghats"}
@@ -346,7 +398,7 @@ export default function Dashboard() {
       {/* ── 6. FOOTER ────────────────────────────────────────────────────── */}
       <footer className="dashboard__footer">
         <p>
-          SIH 2024 Hackathon Prototype · AI/ML Heavy Rainfall Early Warning &amp; Inundation System · Team FloodSense · Data: GPM IMERG V07B &amp; SRTM DEM 30m
+          VARUNA — Vigilant AI for Rainfall &amp; Urban-flood Notification and Alerting · Data: NASA GPM IMERG V07B &amp; SRTM DEM 30m
         </p>
       </footer>
     </div>

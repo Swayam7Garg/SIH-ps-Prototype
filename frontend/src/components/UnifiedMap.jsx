@@ -14,6 +14,7 @@ import "leaflet/dist/leaflet.css";
 import "./UnifiedMap.css";
 
 export default function UnifiedMap({
+  viewMode = "actual", // 'actual' | 'predicted' | 'comparison'
   rainfallData = null,
   predictionFrame = null,
   elevationData = null,
@@ -29,14 +30,23 @@ export default function UnifiedMap({
   const layerGroupRef = useRef(null);
   const landmarksGroupRef = useRef(null);
 
-  // Active Map Layer Checkboxes State (All default enabled for full visibility)
+  // Active Map Layer Checkboxes State
   const [layers, setLayers] = useState({
-    actualRainfall: true,
-    predictedRainfall: false,
+    actualRainfall: viewMode !== "predicted",
+    predictedRainfall: viewMode === "predicted",
     demElevation: false,
     floodRisk: true,
     alertZones: true,
   });
+
+  // Sync layer state when viewMode changes
+  useEffect(() => {
+    if (viewMode === "predicted") {
+      setLayers((prev) => ({ ...prev, actualRainfall: false, predictedRainfall: true }));
+    } else if (viewMode === "actual") {
+      setLayers((prev) => ({ ...prev, actualRainfall: true, predictedRainfall: false }));
+    }
+  }, [viewMode]);
 
   const [showLandmarks, setShowLandmarks] = useState(true);
   const [hoveredCell, setHoveredCell] = useState(null);
